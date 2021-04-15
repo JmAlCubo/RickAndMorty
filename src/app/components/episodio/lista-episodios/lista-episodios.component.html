@@ -1,0 +1,40 @@
+<div class="grid-container" *ngIf="episodios">
+  <table mat-table [dataSource]="episodios.results" class="mat-elevation-z8 full-tablewidth">
+    <!-- Id Columna -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let episodio">{{episodio.id}}</td>
+    </ng-container>
+
+    <!-- Name Columna -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Título</th>
+      <td mat-cell *matCellDef="let episodio">{{ episodio.name }}</td>
+    </ng-container>
+
+    <!-- Linea del tiempo Column -->
+    <ng-container matColumnDef="air_date">
+      <th mat-header-cell *matHeaderCellDef>linea del tiempo</th>
+      <td mat-cell *matCellDef="let episodio">{{ episodio.air_date }}</td>
+    </ng-container>
+
+     <!-- Episodio Columna -->
+     <ng-container matColumnDef="episode">
+      <th mat-header-cell *matHeaderCellDef>episodio</th>
+      <td mat-cell *matCellDef="let episodio">{{ episodio.episode }}</td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let episodio">
+        <button mat-button aria-label="Detalle" routerLink="./{{episodio.id}}">
+          Detalle
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="nombreColumnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: nombreColumnas;" class="element-row" routerLink="./detalle"></tr>
+  </table>
+</div>

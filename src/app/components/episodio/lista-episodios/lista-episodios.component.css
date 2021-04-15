@@ -1,0 +1,17 @@
+.grid-container {
+    margin: 2rem;
+  }
+  .full-tablewidth {
+    width: 100%;
+  }
+  
+  tr.element-row:not(.element-row):hover {
+    background: whitesmoke;
+  }
+  tr.element-row:not(.element-row):active {
+    background: whitesmoke;
+    border: 0;
+  }
+  .element-row td {
+    border-bottom-width: 0;
+  }

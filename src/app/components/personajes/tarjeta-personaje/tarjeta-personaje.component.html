@@ -1,0 +1,10 @@
+<mat-card *ngIf="personaje">
+    <mat-card-header>
+        <mat-card-title> {{ personaje.name }} </mat-card-title>
+        <mat-card-subtitle> {{ personaje.status }} </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{personaje.image}}">
+    <mat-card-actions>
+        <button mat-raised-button>Ver Perfil</button>
+    </mat-card-actions>
+</mat-card>
