@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ConexionApiService } from './../../shared/service/conexion-api.service';
 
 import { Episodio } from 'src/app/models/episodio';
@@ -14,17 +14,18 @@ export class DetalleEpisodioComponent implements OnInit {
   episodio: Episodio;
 
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
+    private router: Router,
     private service: ConexionApiService
   ) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe((params: Params) => {
-      this.ObtenerEpisodio(params.id);
+    this.route.params.subscribe((params: Params) => {
+      this.obtenerEpisodio(params.id);
     });
   }
 
-  ObtenerEpisodio(id: string) {
+  obtenerEpisodio(id: string) {
     this.service.ObtenerEpisodio(id)
     .subscribe(episodio => {
       this.episodio = episodio;

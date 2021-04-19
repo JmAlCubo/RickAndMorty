@@ -1,21 +1,11 @@
-<div *ngIf="episodio">
+<main *ngIf="episodio">
     <mat-card>
         <mat-card-header>
-            <mat-card-title> {{ episodio.id }}.-{{ episodio.name }} </mat-card-title>
-            <mat-card-subtitle> Emision: {{ episodio.air_date }}</mat-card-subtitle>
+            <mat-card-title> {{ episodio.episode | temporadaEpisodio }} | {{ episodio.name }} </mat-card-title>
+            <mat-card-subtitle> Emisión : {{ episodio.air_date | date:"dd/MM/YYYY" }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <div>
-                <mat-card>
-                    <mat-card-header>
-                        <mat-card-title>Personajes</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="mat-card__personajes">
-                        <app-tarjeta-personaje *ngFor="let personaje of episodio.characters" [url]="personaje"></app-tarjeta-personaje>
-                    </mat-card-content>
-                </mat-card>
-            </div>
+            <app-lista-personajes [urlPersonajes]="episodio.characters"></app-lista-personajes>
         </mat-card-content>
     </mat-card>
-
-</div>
+</main>

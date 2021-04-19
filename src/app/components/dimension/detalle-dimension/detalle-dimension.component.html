@@ -1,1 +1,11 @@
-<p>detalle-dimension works!</p>
+<main>
+    <mat-card *ngIf="dimension">
+        <mat-card-header>
+            <mat-card-title> {{ dimension.name }} </mat-card-title>
+            <mat-card-subtitle> {{ dimension.type }} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <app-lista-personajes [urlPersonajes]="dimension.residents"></app-lista-personajes>
+        </mat-card-content>
+    </mat-card>
+</main>

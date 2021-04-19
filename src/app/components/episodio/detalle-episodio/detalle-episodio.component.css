@@ -1,5 +1,40 @@
-#mat-card__personajes {
+mat-card-content {
+    margin: 0 2rem;
+}
+
+.mat-card__personajes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
     grid-gap: 5rem 2rem;
+    margin: 2rem 10rem;
+}
+
+@media (max-width: 640px) {    
+    .mat-card__personajes {
+        margin: 2rem 0.2rem;
+    }
+}
+
+@media (max-width: 880px) {    
+    .mat-card__personajes {
+        margin: 2rem 0.5rem;
+    }
+}
+
+@media (max-width: 1040px) {    
+    .mat-card__personajes {
+        margin: 2rem 1rem;
+    }
+}
+
+@media (max-width: 1300px) {    
+    .mat-card__personajes {
+        margin: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 1500px) {    
+    .mat-card__personajes {
+        margin: 2rem;
+    }
 }

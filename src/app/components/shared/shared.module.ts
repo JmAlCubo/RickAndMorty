@@ -8,10 +8,14 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 
 import { ConexionApiService } from './service/conexion-api.service';
+import { TemporadaEpisodioPipe } from './pipes/temporada-episodio.pipe';
+import { IdUrlDimensionPipe } from './pipes/id-url-dimension.pipe';
 
 @NgModule({
   declarations: [
-    NavegacionComponent
+    NavegacionComponent,
+    TemporadaEpisodioPipe,
+    IdUrlDimensionPipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { ConexionApiService } from './service/conexion-api.service';
   ],
   exports: [
     HttpClientModule,
-    NavegacionComponent
+    NavegacionComponent,
+    TemporadaEpisodioPipe,
+    IdUrlDimensionPipe
   ],
   providers: [
     ConexionApiService

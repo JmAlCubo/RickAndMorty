@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Personaje } from 'src/app/models/personaje';
+
+import { ConexionApiService } from './../../shared/service/conexion-api.service';
 
 @Component({
   selector: 'app-detalle-personaje',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetallePersonajeComponent implements OnInit {
 
-  constructor() { }
+  personaje: Personaje;
+
+  constructor(
+    private route: ActivatedRoute,
+    private service: ConexionApiService
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.obtenerPersonaje(params.id)
+    });
   }
 
+  obtenerPersonaje(id: string){
+    this.service.ObtenerPersonaje(id)
+    .subscribe( personaje => {
+      this.personaje = personaje;
+    });
+  }
 }

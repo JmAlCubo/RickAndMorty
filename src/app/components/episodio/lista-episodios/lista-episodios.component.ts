@@ -28,4 +28,9 @@ export class ListaEpisodiosComponent implements OnInit {
       this.episodios = episodios;
     });
   }
+
+  cargarEpisodios(url: string){
+    this.obtenerListaEpisodios(url);
+  }
+
 }

@@ -21,29 +21,30 @@ export class ConexionApiService {
     private http: HttpClient
   ) { }
 
-  ObtenerListaEpisodios(url_api: string) {
-    if(!url_api) {
-      url_api = `${this.url}episode`;
+  ObtenerListaEpisodios(urlApi: string) {
+    if( !urlApi ) {
+      urlApi = `${this.url}episode`;
     }
-    return this.http.get<Episodios>(url_api);
+    return this.http.get<Episodios>(urlApi);
   }
 
   ObtenerEpisodio(id: string) {
     return this.http.get<Episodio>(`${this.url}episode/${id}`);
   }
 
-  ObtenerListaPersonajes(url_api: string) {
-    if(!url_api) {
-      url_api = `${this.url}characters`;
+  ObtenerListaPersonajes(urlApi: string) {
+    if( !urlApi ) {
+      urlApi = `${this.url}character`;
     }
-    return this.http.get<Personajes>(url_api);
+    return this.http.get<Personajes>(urlApi);
   }
 
   ObtenerPersonaje(id: string) {
-    return this.http.get<Personaje>(`${this.url}characters/${id}`);
+    return this.http.get<Personaje>(`${this.url}character/${id}`);
   }
-  ObtenerPersonajeURL(url_api: string) {
-    return this.http.get<Personaje>(url_api);
+
+  ObtenerPersonajeURL(urlApi: string) {
+    return this.http.get<Personaje>(urlApi);
   }
 
   ObtenerListaDimensiones(url_api: string) {

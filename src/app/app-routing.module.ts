@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'episodio',
-    loadChildren: () => import('./components/episodio/episodio.module').then(m => m.EpisodioModule) 
+    loadChildren: () => import('./components/episodio/episodio.module').then(m => m.EpisodioModule)
   },
   {
     path: 'personaje',

@@ -3,8 +3,12 @@
         <mat-card-title> {{ personaje.name }} </mat-card-title>
         <mat-card-subtitle> {{ personaje.status }} </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{personaje.image}}">
+    <div class="crop-image">
+        <img mat-card-image src="{{personaje.image}}">
+    </div>
     <mat-card-actions>
-        <button mat-raised-button>Ver Perfil</button>
+        <button mat-raised-button 
+        color="primary"
+        (click)="verDetallePersonaje()">Ver Perfil</button>
     </mat-card-actions>
 </mat-card>

@@ -1,1 +1,18 @@
-<p>lista-personajes works!</p>
+<main>
+    <mat-card *ngIf="listaPersonajes">
+        <mat-card-header>
+            <mat-card-title> Personajes </mat-card-title>
+        </mat-card-header>
+        <mat-card-actions *ngIf="info">
+            <button mat-raised-button (click)="obtenerPersonajes(info.info.prev)">Anterior</button>
+            <button mat-raised-button (click)="obtenerPersonajes(info.info.next)">Siguiente</button>
+        </mat-card-actions>
+        <mat-card-content class="mat-card__personajes">
+            <app-tarjeta-personaje 
+            *ngFor="let personaje of listaPersonajes"
+            [personaje]="personaje"
+            (verPersonaje)="verDetallePersonaje($event)"
+            ></app-tarjeta-personaje>
+        </mat-card-content>
+    </mat-card>
+</main>

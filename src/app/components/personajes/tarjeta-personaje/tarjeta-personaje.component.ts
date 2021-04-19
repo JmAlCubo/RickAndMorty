@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Personaje } from 'src/app/models/personaje';
 import { ConexionApiService } from './../../shared/service/conexion-api.service';
@@ -11,23 +11,33 @@ import { ConexionApiService } from './../../shared/service/conexion-api.service'
 export class TarjetaPersonajeComponent implements OnInit {
 
   @Input() url: string;
-
-  personaje: Personaje;
+  @Input() personaje: Personaje
+  @Output() verPersonaje = new EventEmitter<number>();
 
   constructor(
     private service: ConexionApiService
   ) { }
 
   ngOnInit(): void {
-    this.ObtenerPersonaje();
+    this.verificarInput();
   }
 
-  ObtenerPersonaje(){
+  verificarInput(){
+    if(this.url){
+      this.obtenerPersonaje();
+    }
+  }
+
+  obtenerPersonaje(){
     this.service.ObtenerPersonajeURL(this.url)
-    .subscribe( personaje =>{
-      console.log(personaje);
+    .subscribe( personaje => {
       this.personaje = personaje;
-    })
+    });
+  }
+
+  verDetallePersonaje(){
+    console.log(this.personaje.id);
+    this.verPersonaje.emit(this.personaje.id);
   }
 
 }

@@ -1,0 +1,24 @@
+mat-card {
+    margin: 3rem 8rem;
+}
+
+mat-card img {
+    width: 80%;
+    margin: 2rem 5rem;
+}
+main {
+    display: flex;
+}
+.avatar {
+    width: 50%;
+    margin: 2rem;
+}
+.avatar img {
+    border-radius: 2rem;
+    box-shadow: 0.3rem ;
+}
+
+.info {
+    width: 60%;
+    margin: 2rem;
+}
