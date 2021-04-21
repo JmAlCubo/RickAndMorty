@@ -19,8 +19,11 @@ import { PersonajesModule } from './../personajes/personajes.module';
     EpisodioRoutingModule,
     FormsModule,
     MaterialModule,
-    PersonajesModule,
+    // PersonajesModule,
     SharedModule
+  ],
+  exports: [
+    ListaEpisodiosComponent
   ]
 })
 export class EpisodioModule { }

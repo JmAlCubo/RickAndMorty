@@ -29,7 +29,7 @@ export class ListaPersonajesComponent implements OnInit {
     }
   }
 
-  obtenerPersonajes(urlApi: string) {
+  obtenerPersonajes(urlApi: string): void {
     this.service.ObtenerListaPersonajes(urlApi)
       .subscribe(listaPersonajes => {
         this.listaPersonajes = listaPersonajes.results;
@@ -37,15 +37,14 @@ export class ListaPersonajesComponent implements OnInit {
       });
   }
 
-  obtenerListaPersonajes(){
+  obtenerListaPersonajes() {
     let lista: Personaje[] = [];
-    for(let url of this.urlPersonajes){
+    for (let url of this.urlPersonajes) {
       let id = this.obtenerIdUrl(url);
       this.service.ObtenerPersonaje(id)
-      .subscribe( personaje => {
-        console.log(personaje)
-        lista.push(personaje);
-      });
+        .subscribe(personaje => {
+          lista.push(personaje);
+        });
     }
     this.listaPersonajes = lista;
   }
@@ -54,9 +53,9 @@ export class ListaPersonajesComponent implements OnInit {
     var urlArray = Array.from(url);
     var id: string;
 
-    for(let i = urlArray.length-1; i > 0; i--){
-      if(urlArray[i] === '/'){
-        id = url.substr(i+1, urlArray.length-1);
+    for (let i = urlArray.length - 1; i > 0; i--) {
+      if (urlArray[i] === '/') {
+        id = url.substr(i + 1, urlArray.length - 1);
         return id;
       }
     }

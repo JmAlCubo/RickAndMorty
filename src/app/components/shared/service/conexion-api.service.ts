@@ -32,6 +32,20 @@ export class ConexionApiService {
     return this.http.get<Episodio>(`${this.url}episode/${id}`);
   }
 
+  ObtenerEpisodioUrl(urlApi: string){
+    return new Promise((resolve, reject) => {
+      this.http.get<Episodio>(urlApi).toPromise()
+      .then(
+        res => {
+          resolve(res);
+        },
+        msg => {
+          reject(new Error("problemas con la petición: "+ msg.error))
+        }
+      );
+    });
+  }
+
   ObtenerListaPersonajes(urlApi: string) {
     if( !urlApi ) {
       urlApi = `${this.url}character`;

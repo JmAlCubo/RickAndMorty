@@ -1,12 +1,12 @@
 mat-card {
-    margin: 3rem 8rem;
+    margin: 2rem 8rem;
 }
 
 mat-card img {
     width: 80%;
     margin: 2rem 5rem;
 }
-main {
+.main {
     display: flex;
 }
 .avatar {
@@ -21,4 +21,8 @@ main {
 .info {
     width: 60%;
     margin: 2rem;
+}
+
+.episodios {
+    margin: 0 3rem;
 }

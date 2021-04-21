@@ -1,18 +1,18 @@
-<main class="grid-container" *ngIf="episodios">
+<main class="grid-container" *ngIf="listaEpisodios">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Episodios</mat-card-title>
     </mat-card-header>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="episodios">
       <button mat-raised-button (click)="cargarEpisodios(episodios.info.prev)">anterior</button>
       <button mat-raised-button (click)="cargarEpisodios(episodios.info.next)">siguiente</button>
     </mat-card-actions>
     <mat-card-content>
-      <table mat-table [dataSource]="episodios.results" class="mat-elevation-z8 full-tablewidth">
+      <table mat-table [dataSource]="listaEpisodios" class="mat-elevation-z8 full-tablewidth">
         <!-- Id Columna -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef>Id</th>
-          <td mat-cell *matCellDef="let episodio">{{episodio.id}}</td>
+          <td mat-cell *matCellDef="let episodio">{{ episodio.id }}</td>
         </ng-container>
 
         <!-- Name Columna -->
@@ -49,3 +49,9 @@
     </mat-card-content>
   </mat-card>
 </main>
+<mat-card-content *ngIf="error"> 
+  <mat-card-header>
+    <mat-card-title>Ocurrio un error</mat-card-title>
+    <mat-card-subtitle>Tenemos problemas para cargar la información</mat-card-subtitle>
+  </mat-card-header>
+</mat-card-content>

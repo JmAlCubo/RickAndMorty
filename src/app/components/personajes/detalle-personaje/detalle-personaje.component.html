@@ -1,27 +1,33 @@
 <main *ngIf="personaje">
-    <mat-card class="avatar">
-        <mat-card-header>
-            <mat-card-title> {{ personaje.name }} </mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="personaje.image"
-            alt="personaje {{personaje.name}} de la simansión {{personaje.origin.name}}">
-    </mat-card>
-    <mat-card class="info">
-        <mat-card-content>
-            <h3>Estado : {{ personaje.status }} </h3>
-            <h3>Especie : {{ personaje.species }} </h3>
-            <h3 *ngIf="personaje.type">modificación : {{ personaje.type }} </h3>
-            <h3>Genero : {{ personaje.gender }} </h3>
-            <h3>Origen :
-                <a routerLink="/dimension/{{ personaje.origin.url | idUrlDimension }}">
-                    {{ personaje.origin.name }}
-                </a>
-            </h3>
-            <h3>Ubicación Actual :
-                <a routerLink="/dimension/{{ personaje.location.url | idUrlDimension }}">
-                    {{ personaje.location.name }}
-                </a>
-            </h3>
-        </mat-card-content>
-    </mat-card>
+    <div class="main">
+
+        <mat-card class="avatar">
+            <mat-card-header>
+                <mat-card-title> {{ personaje.name }} </mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="personaje.image"
+                alt="personaje {{personaje.name}} de la simansión {{personaje.origin.name}}">
+        </mat-card>
+        <mat-card class="info">
+            <mat-card-content>
+                <h3>Estado : {{ personaje.status }} </h3>
+                <h3>Especie : {{ personaje.species }} </h3>
+                <h3 *ngIf="personaje.type">modificación : {{ personaje.type }} </h3>
+                <h3>Genero : {{ personaje.gender }} </h3>
+                <h3>Origen :
+                    <a routerLink="/dimension/{{ personaje.origin.url | idUrlDimension }}">
+                        {{ personaje.origin.name }}
+                    </a>
+                </h3>
+                <h3>Ubicación Actual :
+                    <a routerLink="/dimension/{{ personaje.location.url | idUrlDimension }}">
+                        {{ personaje.location.name }}
+                    </a>
+                </h3>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <app-lista-episodios class="episodios" [urlEpisodios]="personaje.episode"></app-lista-episodios>
+
 </main>
